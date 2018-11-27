@@ -1,3 +1,6 @@
+// Alycia Riese
+// DisjSets.cpp
+
 #include "DisjSets.h"
 
 /**
@@ -36,3 +39,6 @@ int DisjSets::find( int x )
 {
    //write some code
 }
+
+bool DisjSets::isConnected(int n1, int n2, DisjSets &ds);
+

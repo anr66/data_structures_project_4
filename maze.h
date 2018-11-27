@@ -1,3 +1,6 @@
+// Alycia Riese
+// maze.h
+
 #include <vector>
 #include <iostream>
 #include "mazeCell.h"

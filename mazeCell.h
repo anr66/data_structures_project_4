@@ -1,3 +1,6 @@
+// Alycia Riese
+// mazeCell.h
+
 #ifndef MAZECELL_H_INCLUDED
 #define MAZECELL_H_INCLUDED
 
