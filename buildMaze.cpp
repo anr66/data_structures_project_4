@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 #include <limits>
+#include <ctime>
 
 // my includes
 #include "mazeCell.h"
@@ -24,16 +25,63 @@ void twoRandom(int &n1, int &n2, int maxN);
 
 
 // main function
-int main(int argc, const char *argv[])
+int main()
 {
     srand(time(NULL));
 
     int rows = 0;
-    int cols = 0;
+    int columns = 0;
+    string see_iterations;
 
-    cout << "Enter number of rows\n";
+    cout << "Please enter number of rows greater than 1:\n";
     cin >> rows;
-    cout << "Enter number of columns\n";
+
+    // Check to see if user entered and integer
+    while (!cin.good())
+    {
+        // Clear the buffer
+        cin.clear();
+        cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+
+        // Try again
+        cout << "Error: Input is invalid, try again\n";
+        cin >> rows;
+    }
+
+    cout << "Please enter number of columns greater than 1:\n";
+    cin >> columns;
+
+    // Check to see if user entered and integer
+    while (!cin.good())
+    {
+        // Clear the buffer
+        cin.clear();
+        cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+
+        // Try again
+        cout << "Error: Input is invalid, try again\n";
+        cin >> columns;
+    }
+
+    cout << "Would you like to see each iteration of the maze? Y or N\n";
+    cin >> see_iterations;
+
+    // Check to see if user entered valid input
+    while (!cin.good())
+    {
+        // Clear the buffer
+        cin.clear();
+        cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+
+        // Try again
+        cout << "Error: Input is invalid, please enter either 'y' or 'n'\n";
+        cin >> see_iterations;
+    }
+
+
+
+
+
 }
 
 

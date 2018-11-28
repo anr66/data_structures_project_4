@@ -9,7 +9,8 @@
 #define MAZE_H_INCLUDED
 
 
-class maze {
+class maze
+{
 
 public:
    maze(int r, int c); // constructor
