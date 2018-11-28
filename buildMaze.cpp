@@ -30,7 +30,12 @@ int main(int argc, const char *argv[])
 
     int rows = 0;
     int cols = 0;
+
+    cout << "Enter number of rows\n";
+    cin >> rows;
+    cout << "Enter number of columns\n";
 }
+
 
 // generates two different random numbers in range of maxN and sets them to n1 and n2
 void twoRandom(int &n1, int &n2, int maxN)

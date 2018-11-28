@@ -19,15 +19,17 @@ DisjSets::DisjSets( int numElements ) : s( numElements, -1 )
  * root2 is the root of set 2.
  */
 
-void DisjSets::unionSets(int root1, int root2) {
-	if (s[root1] < s[root2]) {
-       s[root1] += s[root2]; //update size of root1 tree
-	   s[root2] = root1;  // Make root1 new root
-        }
+void DisjSets::unionSets(int root1, int root2) 
+{
+	if (s[root1] < s[root2])
+	{
+    	s[root1] += s[root2]; //update size of root1 tree
+	    s[root2] = root1;  // Make root1 new root    
+	}
     else 
 	{
-	   s[root2] += s[root1];  //update size of root 2
-	   s[root1] = root2;     // make root2 new root
+		s[root2] += s[root1];  //update size of root 2
+		s[root1] = root2;     // make root2 new root
 	}
 }
 
@@ -37,7 +39,25 @@ void DisjSets::unionSets(int root1, int root2) {
  */
 int DisjSets::find( int x )
 {
-   //write some code
+	if (s[x] < 0)
+	{
+		return x;
+	}
+	else
+	{
+		int parent = s[x];
+		int grandparent = s[parent];
+
+		if (grandparent < 0)
+		{
+			return parent;
+		}
+		else
+		{
+			return s[x] = find(grandparent);
+		}
+	}
+   
 }
 
 bool DisjSets::isConnected(int n1, int n2, DisjSets &ds);
