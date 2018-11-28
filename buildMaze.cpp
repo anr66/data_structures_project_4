@@ -81,6 +81,36 @@ int main()
 
     maze1.printMaze();
 
+    int last_cell = (maze1.getCol() * maze1.getRow()) - 1;
+
+    DisjSets ds(last_cell + 1);
+
+    while(!isConnected(0, last_cell, ds))
+    {
+        // get two random ints with max as the last cell
+        int rand1;
+        int rand2;
+        twoRandom(rand1, rand2, last_cell);
+
+        // if the ints are not connected and they are neighbors, smash wall
+        if (!isConnected(rand1, rand2, ds) && maze1.neighbors(rand1, rand2))
+        {
+            maze1.smashWall(rand1, rand2);
+            ds.unionSets(ds.find(rand1), ds.find(rand2));
+
+            // if the user wants to see the iterations, print out maze
+            if (see_iterations == "y")
+            {
+                cout << "Neighbors " << rand1 << ", " << rand2 << " wall smashed below\n";
+                maze1.printMaze(); 
+            }
+        }
+    }
+
+    if (see_iterations != "y")
+    {
+        maze1.printMaze();
+    }
 
     return 0;
 }
