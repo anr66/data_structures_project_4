@@ -15,7 +15,6 @@
 // using statements
 using std::cin;
 using std::cout;
-using std::endl;
 using std::numeric_limits;
 using std::streamsize;
 using std::string;
@@ -36,8 +35,8 @@ int main()
     cout << "Please enter number of rows greater than 1:\n";
     cin >> rows;
 
-    // Check to see if user entered and integer
-    while (!cin.good())
+    // Check to see if user entered an integer
+    while (!cin.good() || rows < 1)
     {
         // Clear the buffer
         cin.clear();
@@ -52,7 +51,7 @@ int main()
     cin >> columns;
 
     // Check to see if user entered and integer
-    while (!cin.good())
+    while (!cin.good() || columns < 1)
     {
         // Clear the buffer
         cin.clear();
@@ -63,11 +62,11 @@ int main()
         cin >> columns;
     }
 
-    cout << "Would you like to see each iteration of the maze? Y or N\n";
+    cout << "Would you like to see each iteration of the maze? y or n\n";
     cin >> see_iterations;
 
     // Check to see if user entered valid input
-    while (!cin.good())
+    while (!cin.good() || (see_iterations.compare("y") != 0 && see_iterations.compare("n") != 0))
     {
         // Clear the buffer
         cin.clear();
@@ -77,11 +76,13 @@ int main()
         cout << "Error: Input is invalid, please enter either 'y' or 'n'\n";
         cin >> see_iterations;
     }
+    
+    maze maze1(rows, columns);
+
+    maze1.printMaze();
 
 
-
-
-
+    return 0;
 }
 
 
