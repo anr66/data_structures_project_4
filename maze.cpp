@@ -24,25 +24,19 @@ maze::maze(int r, int c)
     // gets total number of cells in the maze
     int num_cells = row * col;
 
-    for (int p = 0; p < 100; p++)
-    {
-        cout << p << " ";
-    }
-
     for(int i = 0; i < num_cells; i++)
     {
-        //cout << i;
         mazeCell cell;
 
         // this is first cell, we dont want to print left or top for first cell
-        if (i = 0)
+        if (i == 0)
         {
             cell.setLeft(false);
             cell.setTop(false);
         }
 
         // this is last cell, we dont want to print right or bot for last cell
-        if (i == (num_cells - 1))
+        else if (i == (num_cells - 1))
         {
             cell.setRight(false);
             cell.setBot(false);
@@ -50,7 +44,7 @@ maze::maze(int r, int c)
 
         // put cell onto the maze
         theMaze.push_back(cell);
-        //cout << i;
+        //cout << theMaze.size() << " ";
     }
 
 }
@@ -154,15 +148,16 @@ void maze::smashWall (int cell, int neigh)
 //print the maze
 void maze::printMaze()
 {
+    // this is for top
     for(int i = 0; i < getCol(); i++)
     {
         if (i == 0)
         {
-            cout << " ";
+            cout << "  ";
         }
         else
         {
-            cout << "_";
+            cout << " _";
         }
     }
 

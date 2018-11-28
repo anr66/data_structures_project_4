@@ -6,6 +6,7 @@
 
 class mazeCell
 {
+
     public:
 
     // no param constructor

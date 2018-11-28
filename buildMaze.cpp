@@ -21,12 +21,12 @@ using std::string;
 
 // function prototypes
 void twoRandom(int &n1, int &n2, int maxN);
-
+bool isConnected(int n1, int n2, DisjSets &ds);
 
 // main function
 int main()
 {
-    srand(time(NULL));
+    //srand(time(NULL));
 
     int rows = 0;
     int columns = 0;
@@ -91,4 +91,20 @@ void twoRandom(int &n1, int &n2, int maxN)
 {
     n1 = rand() % (maxN + 1);
     n2 = rand() % (maxN + 1);
+}
+
+bool isConnected(int n1, int n2, DisjSets &ds)
+{
+    const int f1 = ds.find(n1);
+    const int f2 = ds.find(n2);
+    
+    if (f1 == f2)
+    {
+        return true;
+    }
+
+    else
+    {
+        return false;
+    }
 }

@@ -60,8 +60,3 @@ int DisjSets::find( int x )
 
 }
 
-bool DisjSets::isConnected(int n1, int n2, DisjSets &ds)
-{
-
-}
-
